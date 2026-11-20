@@ -1,0 +1,1768 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>51反差爆料每日大赛 - 原创影像_反差故事内容社区</title>
+<meta name="description" content="51反差爆料每日大赛官方网站，专注反差叙事影像的原创内容社区，聚集优质创作者，每日更新反差挑战与真实故事，打造值得信赖的高品质内容生态。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141820'/%3E%3Cpath d='M18 40 L32 18 L46 40 Z' fill='%23ff3d5a'/%3E%3Ccircle cx='32' cy='46' r='5' fill='%23ffd166'/%3E%3C/svg%3E">
+<style>
+:root{
+  --cfx-bg:#12151c;
+  --cfx-panel:#1a1f29;
+  --cfx-panel2:#212734;
+  --cfx-line:#2c3444;
+  --cfx-text:#e9edf5;
+  --cfx-muted:#96a0b5;
+  --cfx-red:#ff3d5a;
+  --cfx-yellow:#ffd166;
+  --cfx-cyan:#4dd0e1;
+  --cfx-radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  background:var(--cfx-bg);
+  color:var(--cfx-text);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+ul{list-style:none}
+
+/* ---------- 公告条 + 页头 吸顶 ---------- */
+.cfx-topwrap{
+  position:sticky;top:0;z-index:900;
+}
+.cfx-notice{
+  background:linear-gradient(90deg,#ff3d5a,#ff7a45 55%,#ffd166);
+  color:#1b1114;
+  font-size:13px;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:7px 18px;
+  overflow:hidden;
+  white-space:nowrap;
+}
+.cfx-notice-badge{
+  flex:0 0 auto;
+  background:#1b1114;
+  color:#ffd166;
+  border-radius:999px;
+  padding:1px 9px;
+  font-size:11px;
+  letter-spacing:1px;
+}
+.cfx-notice-track{
+  display:flex;gap:44px;
+  animation:cfx-marquee 28s linear infinite;
+}
+.cfx-notice-track span{display:inline-block;white-space:nowrap}
+@keyframes cfx-marquee{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+.cfx-header{
+  background:rgba(18,21,28,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--cfx-line);
+}
+.cfx-header-inner{
+  max-width:1200px;
+  margin:0 auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  gap:22px;
+}
+.cfx-logo{
+  display:flex;align-items:center;gap:10px;
+  font-weight:800;font-size:19px;letter-spacing:.5px;
+  flex:0 0 auto;
+}
+.cfx-logo-mark{
+  width:34px;height:34px;border-radius:9px;
+  background:linear-gradient(135deg,#ff3d5a,#ffd166);
+  display:grid;place-items:center;
+  color:#181008;font-size:15px;font-weight:900;
+}
+.cfx-logo small{
+  display:block;font-size:10px;color:var(--cfx-muted);
+  font-weight:500;letter-spacing:2px;
+}
+.cfx-nav{
+  display:flex;gap:4px;flex:1;
+  flex-wrap:wrap;
+}
+.cfx-nav a{
+  font-size:14px;color:var(--cfx-muted);
+  padding:6px 11px;border-radius:8px;
+  transition:.2s;
+}
+.cfx-nav a:hover,.cfx-nav a.is-active{
+  color:#fff;background:#242b3a;
+}
+.cfx-search{
+  position:relative;
+  flex:0 0 230px;
+}
+.cfx-search input{
+  width:100%;
+  background:#1b212c;
+  border:1px solid var(--cfx-line);
+  border-radius:10px;
+  color:var(--cfx-text);
+  padding:8px 12px 8px 34px;
+  font-size:13px;
+  outline:none;
+  transition:.2s;
+}
+.cfx-search input:focus{
+  border-color:var(--cfx-red);
+  box-shadow:0 0 0 3px rgba(255,61,90,.15);
+}
+.cfx-search::before{
+  content:"⌕";
+  position:absolute;left:12px;top:7px;
+  color:var(--cfx-muted);font-size:14px;
+}
+.cfx-search-tip{
+  position:absolute;
+  top:calc(100% + 8px);left:0;right:0;
+  background:var(--cfx-panel2);
+  border:1px solid var(--cfx-line);
+  border-radius:10px;
+  padding:8px;
+  font-size:12.5px;
+  color:var(--cfx-muted);
+  display:none;
+  z-index:50;
+  box-shadow:0 16px 40px rgba(0,0,0,.5);
+}
+.cfx-search-tip.is-open{display:block}
+.cfx-search-tip b{color:var(--cfx-yellow)}
+.cfx-burger{
+  display:none;
+  background:#1b212c;border:1px solid var(--cfx-line);
+  color:var(--cfx-text);border-radius:9px;
+  width:38px;height:36px;font-size:17px;
+  flex:0 0 auto;
+}
+
+/* ---------- 通用 ---------- */
+.cfx-wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.cfx-section{padding:64px 0 20px;scroll-margin-top:108px}
+.cfx-section-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:18px;flex-wrap:wrap;margin-bottom:30px;
+}
+.cfx-eyebrow{
+  display:inline-block;
+  font-size:11.5px;letter-spacing:3px;
+  color:var(--cfx-red);font-weight:700;
+  text-transform:uppercase;margin-bottom:8px;
+}
+.cfx-h2{
+  font-size:clamp(22px,3vw,30px);
+  line-height:1.35;font-weight:800;letter-spacing:.5px;
+}
+.cfx-h2 em{font-style:normal;color:var(--cfx-yellow)}
+.cfx-sub{color:var(--cfx-muted);font-size:14px;max-width:620px;margin-top:8px}
+.cfx-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  border-radius:11px;padding:10px 18px;
+  font-size:14px;font-weight:600;
+  border:1px solid transparent;
+  transition:.2s;
+  background:#242b3a;color:var(--cfx-text);
+}
+.cfx-btn:hover{transform:translateY(-2px);background:#2d3547}
+.cfx-btn--primary{
+  background:linear-gradient(135deg,#ff3d5a,#ff7a45);
+  color:#fff;box-shadow:0 10px 26px rgba(255,61,90,.28);
+}
+.cfx-btn--primary:hover{background:linear-gradient(135deg,#ff5570,#ff8a5b)}
+.cfx-btn--ghost{
+  background:transparent;border-color:var(--cfx-line);color:var(--cfx-text);
+}
+.cfx-btn--ghost:hover{background:#1c2230}
+.cfx-tag{
+  display:inline-block;font-size:11.5px;
+  color:var(--cfx-cyan);
+  background:rgba(77,208,225,.1);
+  border:1px solid rgba(77,208,225,.25);
+  padding:2px 8px;border-radius:999px;
+  margin-right:6px;
+}
+.cfx-tag--red{color:#ff8f9f;background:rgba(255,61,90,.1);border-color:rgba(255,61,90,.26)}
+.cfx-tag--yellow{color:#ffd166;background:rgba(255,209,102,.09);border-color:rgba(255,209,102,.26)}
+
+/* ---------- 首屏 ---------- */
+.cfx-hero{
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid var(--cfx-line);
+  background:
+    radial-gradient(900px 420px at 82% -10%,rgba(255,61,90,.24),transparent 70%),
+    radial-gradient(700px 380px at 6% 110%,rgba(77,208,225,.14),transparent 70%),
+    #12151c;
+}
+.cfx-hero-inner{
+  max-width:1200px;margin:0 auto;padding:58px 20px 62px;
+  display:grid;grid-template-columns:6fr 4fr;gap:46px;align-items:center;
+}
+.cfx-hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;color:var(--cfx-yellow);
+  border:1px solid rgba(255,209,102,.4);
+  background:rgba(255,209,102,.07);
+  border-radius:999px;padding:4px 13px;margin-bottom:18px;
+}
+.cfx-hero-badge i{width:6px;height:6px;border-radius:50%;background:var(--cfx-yellow);animation:cfx-pulse 1.6s infinite}
+@keyframes cfx-pulse{0%,100%{opacity:1}50%{opacity:.25}}
+.cfx-hero h1{
+  font-size:clamp(32px,5vw,52px);
+  line-height:1.16;font-weight:900;letter-spacing:1px;
+  margin-bottom:16px;
+}
+.cfx-hero h1 span{
+  background:linear-gradient(120deg,#ff3d5a,#ffd166);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.cfx-hero-lead{
+  color:#c3cbdb;font-size:15.5px;line-height:1.9;margin-bottom:22px;
+  max-width:620px;
+}
+.cfx-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.cfx-hero-stats{
+  display:flex;gap:34px;flex-wrap:wrap;
+  border-top:1px solid var(--cfx-line);padding-top:22px;
+}
+.cfx-stat-num{
+  font-size:26px;font-weight:900;color:#fff;letter-spacing:.5px;
+}
+.cfx-stat-num i{font-style:normal;color:var(--cfx-red);font-size:15px;margin-left:2px}
+.cfx-stat-label{font-size:12px;color:var(--cfx-muted);letter-spacing:1px}
+.cfx-hero-visual{position:relative}
+.cfx-hero-cover{
+  border-radius:20px;overflow:hidden;
+  border:1px solid var(--cfx-line);
+  box-shadow:0 30px 70px rgba(0,0,0,.55);
+  position:relative;
+}
+.cfx-hero-cover img{width:100%;height:auto}
+.cfx-hero-cover-tag{
+  position:absolute;left:14px;top:14px;
+  background:rgba(18,21,28,.82);
+  border:1px solid rgba(255,61,90,.45);
+  color:#ff8f9f;font-size:11.5px;
+  padding:3px 10px;border-radius:999px;
+  backdrop-filter:blur(6px);
+}
+.cfx-hero-cover-pill{
+  position:absolute;right:14px;bottom:14px;
+  background:rgba(18,21,28,.86);
+  border:1px solid var(--cfx-line);
+  color:var(--cfx-text);font-size:12px;
+  padding:5px 12px;border-radius:999px;
+  display:flex;gap:8px;align-items:center;
+}
+.cfx-hero-mini{
+  position:absolute;left:-26px;bottom:-24px;
+  width:190px;border-radius:14px;overflow:hidden;
+  border:1px solid var(--cfx-line);
+  box-shadow:0 20px 44px rgba(0,0,0,.6);
+  background:var(--cfx-panel);
+}
+.cfx-hero-mini img{width:100%}
+
+/* ---------- 解析长文 ---------- */
+.cfx-about{
+  background:linear-gradient(180deg,#151a23,#12151c);
+  border-bottom:1px solid var(--cfx-line);
+}
+.cfx-about-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;
+}
+.cfx-about p{
+  color:#b8c1d2;font-size:14.6px;line-height:2;margin-bottom:16px;
+}
+.cfx-about p b{color:var(--cfx-yellow);font-weight:700}
+.cfx-about p strong{color:#fff;font-weight:700}
+.cfx-about-card{
+  background:var(--cfx-panel);
+  border:1px solid var(--cfx-line);
+  border-radius:var(--cfx-radius);
+  padding:24px 24px 18px;
+  height:fit-content;
+}
+.cfx-about-card h3{
+  font-size:16px;margin-bottom:14px;color:#fff;
+}
+.cfx-about-card li{
+  font-size:13.6px;color:var(--cfx-muted);
+  padding:9px 0;border-bottom:1px dashed #28313f;
+  display:flex;gap:10px;
+}
+.cfx-about-card li:last-child{border-bottom:0}
+.cfx-about-card li span{
+  color:var(--cfx-red);font-weight:800;flex:0 0 auto;
+}
+
+/* ---------- 焦点视频 ---------- */
+.cfx-focus-grid{
+  display:grid;grid-template-columns:1.35fr 1fr;gap:22px;
+}
+.cfx-vcard{
+  background:var(--cfx-panel);
+  border:1px solid var(--cfx-line);
+  border-radius:var(--cfx-radius);
+  overflow:hidden;
+  transition:.25s;
+  display:flex;flex-direction:column;
+}
+.cfx-vcard:hover{
+  transform:translateY(-5px);
+  border-color:#3a465c;
+  box-shadow:0 22px 50px rgba(0,0,0,.45);
+}
+.cfx-vthumb{
+  position:relative;overflow:hidden;background:#0d1016;
+}
+.cfx-vthumb img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:.4s}
+.cfx-vcard:hover .cfx-vthumb img{transform:scale(1.045)}
+.cfx-vthumb-play{
+  position:absolute;inset:0;display:grid;place-items:center;
+  opacity:0;transition:.25s;
+  background:rgba(10,12,18,.32);
+}
+.cfx-vcard:hover .cfx-vthumb-play{opacity:1}
+.cfx-vthumb-play i{
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(255,61,90,.92);color:#fff;
+  display:grid;place-items:center;font-style:normal;font-size:19px;
+  box-shadow:0 0 0 8px rgba(255,61,90,.18);
+}
+.cfx-vthumb-label{
+  position:absolute;left:12px;top:12px;
+  background:rgba(10,12,18,.8);
+  border:1px solid rgba(255,255,255,.14);
+  font-size:11px;padding:2px 9px;border-radius:999px;
+  color:#ffd166;
+}
+.cfx-vthumb-dur{
+  position:absolute;right:12px;bottom:12px;
+  background:rgba(10,12,18,.85);
+  font-size:11px;color:#cfd6e4;
+  padding:1px 8px;border-radius:6px;
+}
+.cfx-vbody{padding:16px 18px 18px;display:flex;flex-direction:column;gap:9px;flex:1}
+.cfx-vtitle{font-size:16.5px;font-weight:700;line-height:1.45;color:#fff}
+.cfx-vcard--big .cfx-vtitle{font-size:20px}
+.cfx-vdesc{font-size:13.4px;color:var(--cfx-muted);line-height:1.8}
+.cfx-vmeta{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:10px;flex-wrap:wrap;
+  padding-top:10px;border-top:1px solid #262e3d;
+  font-size:12.4px;color:var(--cfx-muted);
+  margin-top:auto;
+}
+.cfx-vauthor{display:flex;align-items:center;gap:8px}
+.cfx-avatar{
+  width:26px;height:26px;border-radius:50%;
+  display:grid;place-items:center;
+  font-size:12px;font-weight:800;color:#12151c;
+  flex:0 0 auto;
+}
+.cfx-vops{display:flex;gap:6px}
+.cfx-op{
+  background:#242b3a;border:1px solid transparent;
+  color:#aab4c7;font-size:12px;border-radius:999px;
+  padding:3px 10px;transition:.18s;
+}
+.cfx-op:hover{background:#2d3547;color:#fff}
+.cfx-op.is-liked{color:#ff8f9f;border-color:rgba(255,61,90,.4);background:rgba(255,61,90,.12)}
+.cfx-op.is-saved{color:#ffd166;border-color:rgba(255,209,102,.38);background:rgba(255,209,102,.1)}
+
+.cfx-focus-side{display:grid;gap:22px;grid-template-columns:1fr 1fr}
+.cfx-mini-card{
+  background:var(--cfx-panel);border:1px solid var(--cfx-line);
+  border-radius:14px;overflow:hidden;transition:.24s;
+}
+.cfx-mini-card:hover{transform:translateY(-4px);border-color:#3a465c}
+.cfx-mini-card img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.cfx-mini-body{padding:11px 13px 13px}
+.cfx-mini-body h4{font-size:13.6px;line-height:1.5;font-weight:700;color:#f0f3f8}
+.cfx-mini-body small{display:block;font-size:11.5px;color:var(--cfx-muted);margin-top:5px}
+
+/* ---------- 视频流 ---------- */
+.cfx-stream-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+.cfx-filterbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.cfx-chip{
+  background:#1b212c;border:1px solid var(--cfx-line);
+  color:var(--cfx-muted);font-size:12.8px;
+  padding:5px 14px;border-radius:999px;transition:.2s;
+}
+.cfx-chip:hover{color:#fff;border-color:#3a465c}
+.cfx-chip.is-active{
+  background:rgba(255,61,90,.14);color:#ff8f9f;
+  border-color:rgba(255,61,90,.45);
+}
+.cfx-vcard.is-hidden{display:none}
+
+/* ---------- 专题 ---------- */
+.cfx-topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cfx-topic{
+  position:relative;border-radius:var(--cfx-radius);overflow:hidden;
+  border:1px solid var(--cfx-line);background:var(--cfx-panel);
+  transition:.24s;
+}
+.cfx-topic:hover{transform:translateY(-5px);border-color:#3a465c}
+.cfx-topic img{width:100%;aspect-ratio:16/10;object-fit:cover;opacity:.92}
+.cfx-topic-body{padding:16px 18px 18px}
+.cfx-topic-body h3{font-size:16px;color:#fff;margin-bottom:7px}
+.cfx-topic-body p{font-size:13px;color:var(--cfx-muted);line-height:1.8}
+.cfx-topic-state{
+  position:absolute;right:12px;top:12px;
+  font-size:11px;padding:2px 9px;border-radius:999px;
+  background:rgba(10,12,18,.82);color:#ffd166;
+  border:1px solid rgba(255,209,102,.35);
+}
+.cfx-topic-state--live{color:#7dfab0;border-color:rgba(125,250,176,.4)}
+
+/* ---------- 创作者 ---------- */
+.cfx-creator-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cfx-creator{
+  background:var(--cfx-panel);border:1px solid var(--cfx-line);
+  border-radius:var(--cfx-radius);padding:20px 18px;text-align:center;
+  transition:.24s;
+}
+.cfx-creator:hover{transform:translateY(-5px);border-color:#3a465c}
+.cfx-creator-avatar{
+  width:64px;height:64px;border-radius:50%;margin:0 auto 12px;
+  display:grid;place-items:center;font-size:23px;font-weight:900;
+  color:#12151c;position:relative;
+}
+.cfx-creator-avatar::after{
+  content:"";position:absolute;inset:-5px;border-radius:50%;
+  border:1px dashed rgba(255,255,255,.16);
+}
+.cfx-creator h3{font-size:15px;color:#fff;margin-bottom:4px}
+.cfx-creator .cfx-field{font-size:11.5px;color:var(--cfx-cyan);margin-bottom:10px}
+.cfx-creator p{font-size:12.6px;color:var(--cfx-muted);line-height:1.75;min-height:66px}
+.cfx-creator-stats{
+  display:flex;justify-content:center;gap:16px;margin-top:10px;
+  padding-top:10px;border-top:1px solid #262e3d;font-size:11.5px;color:#8e98ac;
+}
+.cfx-creator-stats b{color:#fff;font-size:13px;display:block}
+.cfx-creator-more{margin-top:12px;width:100%;justify-content:center;font-size:12.5px;padding:7px 0}
+
+/* ---------- 评价 ---------- */
+.cfx-quote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cfx-quote{
+  background:var(--cfx-panel2);border:1px solid var(--cfx-line);
+  border-radius:14px;padding:18px 18px 16px;
+  position:relative;
+}
+.cfx-quote::before{
+  content:"“";position:absolute;right:16px;top:2px;
+  font-size:52px;color:rgba(255,61,90,.22);font-family:Georgia,serif;
+}
+.cfx-quote p{font-size:13.4px;color:#c3cbdb;line-height:1.9;margin-bottom:14px}
+.cfx-quote-user{display:flex;align-items:center;gap:9px;font-size:12.4px;color:var(--cfx-muted)}
+.cfx-quote-user .cfx-avatar{width:30px;height:30px;font-size:13px}
+.cfx-stars{color:var(--cfx-yellow);letter-spacing:2px;font-size:11.5px;margin-top:2px}
+
+/* ---------- 动态/更新 ---------- */
+.cfx-log{display:grid;gap:12px}
+.cfx-log-item{
+  display:grid;grid-template-columns:120px 1fr auto;gap:16px;
+  align-items:center;
+  background:var(--cfx-panel);border:1px solid var(--cfx-line);
+  border-radius:12px;padding:14px 18px;transition:.2s;
+}
+.cfx-log-item:hover{border-color:#3a465c;background:#1d232f}
+.cfx-log-date{font-size:12px;color:var(--cfx-red);font-weight:700;letter-spacing:.5px}
+.cfx-log-item h4{font-size:14px;color:#f0f3f8;font-weight:600}
+.cfx-log-item p{font-size:12.4px;color:var(--cfx-muted);margin-top:2px}
+.cfx-log-kind{
+  font-size:11px;color:var(--cfx-cyan);
+  border:1px solid rgba(77,208,225,.3);
+  padding:2px 9px;border-radius:999px;white-space:nowrap;
+}
+
+/* ---------- 灵感 / 榜单 ---------- */
+.cfx-duo{display:grid;grid-template-columns:1.1fr 1fr;gap:22px}
+.cfx-idea{
+  background:linear-gradient(150deg,#1d232f,#181d27);
+  border:1px solid var(--cfx-line);border-radius:var(--cfx-radius);
+  padding:24px;
+}
+.cfx-idea h3{font-size:17px;color:#fff;margin-bottom:6px}
+.cfx-idea > p{font-size:13px;color:var(--cfx-muted);margin-bottom:18px}
+.cfx-idea-item{
+  background:#121722;border:1px solid #262e3d;
+  border-radius:11px;padding:12px 14px;margin-bottom:10px;
+  font-size:13.2px;color:#c3cbdb;line-height:1.75;
+}
+.cfx-idea-item b{color:var(--cfx-yellow);display:block;font-size:12px;margin-bottom:3px;letter-spacing:.5px}
+.cfx-rank{
+  background:var(--cfx-panel);border:1px solid var(--cfx-line);
+  border-radius:var(--cfx-radius);padding:24px;
+}
+.cfx-rank h3{font-size:17px;color:#fff;margin-bottom:16px}
+.cfx-rank-item{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 0;border-bottom:1px dashed #28313f;font-size:13.4px;
+}
+.cfx-rank-item:last-child{border-bottom:0}
+.cfx-rank-no{
+  width:24px;height:24px;border-radius:7px;flex:0 0 auto;
+  display:grid;place-items:center;font-size:12px;font-weight:800;
+  background:#242b3a;color:#cfd6e4;
+}
+.cfx-rank-item:nth-child(2) .cfx-rank-no{background:linear-gradient(135deg,#ff3d5a,#ff7a45);color:#fff}
+.cfx-rank-item:nth-child(3) .cfx-rank-no{background:linear-gradient(135deg,#ffd166,#ffb02e);color:#1b1114}
+.cfx-rank-item:nth-child(4) .cfx-rank-no{background:linear-gradient(135deg,#4dd0e1,#2b9fb3);color:#0d1a1d}
+.cfx-rank-name{flex:1;color:#dfe5ef}
+.cfx-rank-val{font-size:12px;color:var(--cfx-muted)}
+
+/* ---------- FAQ ---------- */
+.cfx-faq{display:grid;gap:12px;max-width:900px;margin:0 auto}
+.cfx-faq details{
+  background:var(--cfx-panel);border:1px solid var(--cfx-line);
+  border-radius:12px;padding:0 18px;transition:.2s;
+}
+.cfx-faq details[open]{border-color:rgba(255,61,90,.4);background:#1d232f}
+.cfx-faq summary{
+  cursor:pointer;list-style:none;
+  padding:15px 0;font-size:14.4px;font-weight:600;color:#eef1f7;
+  display:flex;align-items:center;gap:10px;
+}
+.cfx-faq summary::-webkit-details-marker{display:none}
+.cfx-faq summary::before{
+  content:"+";color:var(--cfx-red);font-weight:900;font-size:16px;
+  width:16px;flex:0 0 auto;
+}
+.cfx-faq details[open] summary::before{content:"−"}
+.cfx-faq details p{
+  font-size:13.4px;color:var(--cfx-muted);line-height:1.9;
+  padding:0 0 16px 26px;
+}
+
+/* ---------- 联系 ---------- */
+.cfx-contact{
+  background:
+    radial-gradient(700px 300px at 88% 0%,rgba(255,61,90,.2),transparent 70%),
+    linear-gradient(160deg,#1b212c,#14181f);
+  border:1px solid var(--cfx-line);border-radius:20px;
+  padding:40px 34px;
+  display:grid;grid-template-columns:1.2fr 1fr;gap:34px;align-items:center;
+}
+.cfx-contact h2{font-size:clamp(21px,2.6vw,27px);line-height:1.4;margin-bottom:12px}
+.cfx-contact h2 em{font-style:normal;color:var(--cfx-yellow)}
+.cfx-contact p{font-size:13.8px;color:#b8c1d2;line-height:1.9;margin-bottom:18px}
+.cfx-contact-actions{display:flex;gap:10px;flex-wrap:wrap}
+.cfx-contact-info{display:grid;gap:10px}
+.cfx-contact-info div{
+  background:rgba(18,21,28,.6);border:1px solid var(--cfx-line);
+  border-radius:11px;padding:12px 16px;font-size:13px;color:#cfd6e4;
+  display:flex;justify-content:space-between;gap:12px;
+}
+.cfx-contact-info div span{color:var(--cfx-muted);font-size:12.4px}
+
+/* ---------- 页脚 ---------- */
+.cfx-footer{
+  border-top:1px solid var(--cfx-line);margin-top:64px;
+  background:#0f1218;padding:44px 0 26px;
+}
+.cfx-footer-grid{
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px;
+  padding-bottom:28px;border-bottom:1px solid #222a37;
+}
+.cfx-footer h4{font-size:13.5px;color:#fff;margin-bottom:12px;letter-spacing:.5px}
+.cfx-footer li{font-size:12.8px;color:#8e98ac;padding:5px 0}
+.cfx-footer li a:hover{color:#fff}
+.cfx-footer-brand p{font-size:12.8px;color:#8e98ac;line-height:1.9;margin-top:10px;max-width:330px}
+.cfx-footer-bottom{
+  padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12.2px;color:#758095;
+}
+
+/* ---------- 悬浮按钮 ---------- */
+.cfx-totop{
+  position:fixed;right:22px;bottom:26px;z-index:800;
+  width:44px;height:44px;border-radius:12px;
+  background:#242b3a;border:1px solid #353f52;color:#dfe5ef;
+  display:grid;place-items:center;font-size:16px;
+  opacity:0;pointer-events:none;transition:.25s;
+  box-shadow:0 12px 30px rgba(0,0,0,.5);
+}
+.cfx-totop.is-show{opacity:1;pointer-events:auto}
+.cfx-totop:hover{background:var(--cfx-red);border-color:var(--cfx-red);color:#fff}
+
+/* ---------- Toast / 弹窗 ---------- */
+.cfx-toast{
+  position:fixed;left:50%;bottom:70px;transform:translate(-50%,20px);
+  background:#242b3a;border:1px solid #3a465c;color:#fff;
+  font-size:13px;padding:10px 20px;border-radius:11px;
+  opacity:0;pointer-events:none;transition:.28s;z-index:1200;
+  box-shadow:0 18px 44px rgba(0,0,0,.55);
+}
+.cfx-toast.is-show{opacity:1;transform:translate(-50%,0)}
+.cfx-modal{
+  position:fixed;inset:0;z-index:1100;
+  background:rgba(8,10,15,.72);backdrop-filter:blur(4px);
+  display:none;place-items:center;padding:20px;
+}
+.cfx-modal.is-open{display:grid}
+.cfx-modal-box{
+  background:var(--cfx-panel);border:1px solid #333c4e;
+  border-radius:16px;width:100%;max-width:460px;
+  padding:24px;box-shadow:0 30px 80px rgba(0,0,0,.65);
+}
+.cfx-modal-box h3{font-size:17px;color:#fff;margin-bottom:6px}
+.cfx-modal-box > p{font-size:13px;color:var(--cfx-muted);margin-bottom:16px}
+.cfx-modal-box label{display:block;font-size:12.4px;color:#aab4c7;margin:10px 0 6px}
+.cfx-modal-box input,.cfx-modal-box textarea,.cfx-modal-box select{
+  width:100%;background:#121722;border:1px solid #2c3444;
+  color:var(--cfx-text);border-radius:9px;padding:9px 12px;
+  font-size:13px;font-family:inherit;outline:none;
+}
+.cfx-modal-box textarea{min-height:84px;resize:vertical}
+.cfx-modal-box input:focus,.cfx-modal-box textarea:focus{border-color:var(--cfx-red)}
+.cfx-modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:18px}
+.cfx-share-list{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.cfx-share-list button{
+  flex:1 1 90px;background:#242b3a;border:1px solid #333c4e;
+  color:#dfe5ef;border-radius:10px;padding:9px 6px;font-size:12.5px;
+}
+.cfx-share-list button:hover{background:#2d3547;color:#fff}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:1000px){
+  .cfx-hero-inner{grid-template-columns:1fr;gap:34px}
+  .cfx-hero-visual{max-width:520px}
+  .cfx-about-grid{grid-template-columns:1fr}
+  .cfx-focus-grid{grid-template-columns:1fr}
+  .cfx-stream-grid{grid-template-columns:repeat(2,1fr)}
+  .cfx-topic-grid{grid-template-columns:1fr 1fr}
+  .cfx-creator-grid{grid-template-columns:repeat(2,1fr)}
+  .cfx-quote-grid{grid-template-columns:1fr 1fr}
+  .cfx-duo{grid-template-columns:1fr}
+  .cfx-contact{grid-template-columns:1fr;padding:30px 22px}
+  .cfx-footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .cfx-header-inner{flex-wrap:wrap;gap:12px}
+  .cfx-burger{display:block;margin-left:auto}
+  .cfx-search{order:4;flex:1 1 100%}
+  .cfx-nav{
+    order:5;flex:1 1 100%;display:none;
+    flex-direction:column;gap:2px;
+    border-top:1px solid var(--cfx-line);padding-top:10px;
+  }
+  .cfx-nav.is-open{display:flex}
+  .cfx-nav a{padding:9px 6px;font-size:14px}
+  .cfx-hero-inner{padding:36px 20px 48px}
+  .cfx-hero-mini{display:none}
+  .cfx-stream-grid,
+  .cfx-topic-grid,
+  .cfx-creator-grid,
+  .cfx-quote-grid,
+  .cfx-focus-side{grid-template-columns:1fr}
+  .cfx-log-item{grid-template-columns:1fr;gap:6px}
+  .cfx-section{padding:44px 0 14px}
+  .cfx-footer-grid{grid-template-columns:1fr}
+  .cfx-notice{font-size:12px}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="cfx-topwrap">
+  <div class="cfx-notice" role="region" aria-label="站内公告">
+    <span class="cfx-notice-badge">公告</span>
+    <div class="cfx-notice-track" id="cfxNoticeTrack">
+      <span>11月19日新增「反差挑战·第51期」征集通道已开启，投稿截止11月26日24时</span>
+      <span>本周新上线 27 条原创反差故事影像，专题「城市另一面」已更新至第 6 集</span>
+      <span>创作者认证申请本周开放 120 个名额，通过后可获得官方流量扶持</span>
+      <span>11月19日新增「反差挑战·第51期」征集通道已开启，投稿截止11月26日24时</span>
+      <span>本周新上线 27 条原创反差故事影像，专题「城市另一面」已更新至第 6 集</span>
+      <span>创作者认证申请本周开放 120 个名额，通过后可获得官方流量扶持</span>
+    </div>
+  </div>
+
+  <header class="cfx-header">
+    <div class="cfx-header-inner">
+      <a class="cfx-logo" href="#cfxHome" aria-label="51反差爆料每日大赛官方网站首页">
+        <span class="cfx-logo-mark">51</span>
+        <span>51反差爆料<small>每日大赛 · 官方网站</small></span>
+      </a>
+      <nav class="cfx-nav" id="cfxNav" aria-label="主导航">
+        <a href="#cfxHome" class="is-active">首页</a>
+        <a href="#cfxFocus">焦点视频</a>
+        <a href="#cfxStream">热门内容</a>
+        <a href="#cfxTopic">专题企划</a>
+        <a href="#cfxCreator">创作者</a>
+        <a href="#cfxLog">企业动态</a>
+        <a href="#cfxFaq">帮助</a>
+        <a href="#cfxContact">联系投稿</a>
+      </nav>
+      <div class="cfx-search">
+        <input type="search" id="cfxSearch" placeholder="搜索反差故事 / 创作者 / 专题" aria-label="站内搜索">
+        <div class="cfx-search-tip" id="cfxSearchTip"></div>
+      </div>
+      <button class="cfx-burger" id="cfxBurger" aria-label="展开导航菜单" aria-expanded="false">☰</button>
+    </div>
+  </header>
+</div>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="cfx-hero" id="cfxHome">
+    <div class="cfx-hero-inner">
+      <div>
+        <div class="cfx-hero-badge"><i></i>官方发布 · 第 51 期反差挑战征集中</div>
+        <h1>51反差爆料每日大赛</h1>
+        <p class="cfx-hero-lead">
+          这里是 51反差爆料每日大赛官方网站。我们以“反差”为叙事方法，以“每日大赛”为持续节奏，把普通人身上最不普通的那一面拍成影像。品牌自创立以来持续运营，深耕真实故事影像这一垂直领域，为创作者与企业搭建高品质内容生态。
+        </p>
+        <div class="cfx-hero-actions">
+          <a href="#cfxStream" class="cfx-btn cfx-btn--primary">进入今日内容 →</a>
+          <a href="#cfxTopic" class="cfx-btn cfx-btn--ghost">查看本期企划</a>
+          <button class="cfx-btn cfx-btn--ghost" data-cfx-open="submit">我要投稿</button>
+        </div>
+        <div class="cfx-hero-stats">
+          <div>
+            <div class="cfx-stat-num" data-cfx-count="1860">0<i>+</i></div>
+            <div class="cfx-stat-label">原创影像作品</div>
+          </div>
+          <div>
+            <div class="cfx-stat-num" data-cfx-count="326">0<i>位</i></div>
+            <div class="cfx-stat-label">认证创作者</div>
+          </div>
+          <div>
+            <div class="cfx-stat-num" data-cfx-count="51">0<i>期</i></div>
+            <div class="cfx-stat-label">每日大赛已举办</div>
+          </div>
+        </div>
+      </div>
+      <div class="cfx-hero-visual">
+        <div class="cfx-hero-cover">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Cdefs%3E%3ClinearGradient id='hg' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232b1420'/%3E%3Cstop offset='.55' stop-color='%23421b2b'/%3E%3Cstop offset='1' stop-color='%23141820'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='640' height='360' fill='url(%23hg)'/%3E%3Ccircle cx='470' cy='120' r='110' fill='%23ff3d5a' opacity='.22'/%3E%3Ccircle cx='180' cy='270' r='130' fill='%23ffd166' opacity='.12'/%3E%3Cpath d='M0 300 Q160 236 320 292 T640 268 V360 H0 Z' fill='%2312181f'/%3E%3Cg fill='none' stroke='%23ff8f9f' stroke-width='2' opacity='.55'%3E%3Cpath d='M96 96 h96 v56 h-96 z'/%3E%3Cpath d='M448 200 h108 v64 h-108 z'/%3E%3C/g%3E%3Cg fill='%23ffd166'%3E%3Ccircle cx='316' cy='168' r='6'/%3E%3Ccircle cx='342' cy='150' r='3.4'/%3E%3Ccircle cx='290' cy='150' r='3.4'/%3E%3C/g%3E%3Cpath d='M296 186 L336 186 L316 158 Z' fill='%23ff3d5a' opacity='.9'/%3E%3C/svg%3E" alt="51反差爆料每日大赛首屏主视觉：暗色光影中的反差叙事构图">
+          <span class="cfx-hero-cover-tag">官方主视觉</span>
+          <span class="cfx-hero-cover-pill">▶ 本期精选 · 06:42</span>
+        </div>
+        <div class="cfx-hero-mini">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%230f1720'/%3E%3Crect x='0' y='110' width='320' height='70' fill='%231a2430'/%3E%3Ccircle cx='256' cy='52' r='26' fill='%234dd0e1' opacity='.5'/%3E%3Cpath d='M40 130 L90 74 L140 130 Z' fill='%23ff3d5a' opacity='.75'/%3E%3Cpath d='M104 130 L154 92 L204 130 Z' fill='%23ffd166' opacity='.6'/%3E%3C/svg%3E" alt="每日大赛推荐小封面：几何色块中的反差节奏">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 品牌介绍与解析 -->
+  <section class="cfx-section cfx-about" id="cfxAbout">
+    <div class="cfx-wrap">
+      <div class="cfx-section-head">
+        <div>
+          <span class="cfx-eyebrow">BRAND &amp; INSIGHT</span>
+          <h2 class="cfx-h2">关于 51反差爆料每日大赛 <em>我们如何理解“反差”</em></h2>
+          <p class="cfx-sub">一家以反差叙事为核心的视频品牌，如何把每日更新变成长期口碑。</p>
+        </div>
+      </div>
+      <div class="cfx-about-grid">
+        <div>
+          <p>
+            作为国内较早专注于反差叙事影像的品牌，51反差爆料每日大赛官方网站从第一天起就认定：真正打动人的，不是夸张的标签，而是<b>反差背后那段被忽略的真实生活</b>。白天在写字楼里做报表的人，晚上是街头摄影的长期记录者；看起来沉默寡言的程序员，周末在Livehouse里是主唱；把家里收拾得一尘不染的独居青年，其实在阳台上养着一整片野生的苔藓。这些故事不需要被夸大，它们本身就有力量。
+          </p>
+          <p>
+            我们把这个判断做成了产品节奏：<strong>每日大赛</strong>。每天一条主题、一个命题、一次公开征集，创作者用影像回应，用户在评论区接力解读。这种高频率的共创机制，让平台保持着持续的社区活力，也让“反差”从一个流行词变成了一套可被反复练习的叙事方法。企业团队负责选题策划、内容审核、版权备案与创作者服务，创作者负责表达，用户负责投票与反馈，三者共同构成一个开放但有序的内容生态。
+          </p>
+          <p>
+            在内容品质上，我们坚持原创、正版、高清的基础标准：所有上架作品均需通过素材授权核验与画质评估；所有专题均由编辑团队与创作者共同打磨；所有品牌合作内容均明确标注来源。我们认为，一个视频品牌能否被用户首选，最终取决于它是否值得信赖。这份信赖来自每一帧画面的清晰度，也来自每一次更新的准时。
+          </p>
+          <p>
+            我们也清楚，反差叙事天然带着边界。因此 51反差爆料每日大赛建立了完整的内容准则：尊重当事人意愿、拒绝猎奇化剪辑、避免对弱势处境的消费式呈现。我们在编辑规范里把这条写得非常具体——<b>可以犀利，但不刻薄；可以有悬念，但不欺骗</b>。这是品牌社会责任的一部分，也是我们与创作者之间最重要的默契。
+          </p>
+          <p>
+            从成立到现在，平台累计上线原创影像作品超过 1800 条，认证创作者 326 位，举办 51 期每日大赛主题征集，合作品牌覆盖影像器材、城市文旅、生活消费与青年文化等多个领域。数字并不算惊人，但每一条都经过人工审核，每一位创作者都经过真人沟通。我们更愿意把增长做得慢一点，把内容做得实一点。未来，51反差爆料每日大赛将继续在垂直领域深耕，把“每日大赛”做成一个可以被长期期待的固定栏目，也把“反差”做成一种理解他人的温和视角。
+          </p>
+          <p>
+            如果你也有一段“看起来不像你”的经历，欢迎把它拍下来。它可能不会被很多人看到，但它一定会被某些人记住。这是 51反差爆料每日大赛官网对所有创作者的承诺：<strong>认真对待每一次上传，认真回应每一次表达</strong>。
+          </p>
+        </div>
+        <aside class="cfx-about-card">
+          <h3>品牌关键信息</h3>
+          <ul>
+            <li><span>01</span>品牌定位：反差叙事影像内容社区与创作者平台</li>
+            <li><span>02</span>核心栏目：每日大赛、焦点视频、反差专题、创作者矩阵</li>
+            <li><span>03</span>内容标准：原创、正版、高清、可溯源</li>
+            <li><span>04</span>更新节奏：每日主题征集，每周专题上新，每月榜单发布</li>
+            <li><span>05</span>社区原则：尊重当事人，拒绝猎奇消费</li>
+            <li><span>06</span>合作方向：城市文旅、影像器材、青年文化、生活方式品牌</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 焦点视频 -->
+  <section class="cfx-section" id="cfxFocus">
+    <div class="cfx-wrap">
+      <div class="cfx-section-head">
+        <div>
+          <span class="cfx-eyebrow">FOCUS</span>
+          <h2 class="cfx-h2">焦点视频 <em>今日最值得停留的六分钟</em></h2>
+          <p class="cfx-sub">由编辑团队与用户投票共同选出，每天更新一组。</p>
+        </div>
+        <a href="#cfxStream" class="cfx-btn cfx-btn--ghost">全部内容 →</a>
+      </div>
+
+      <div class="cfx-focus-grid">
+        <article class="cfx-vcard cfx-vcard--big">
+          <div class="cfx-vthumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Cdefs%3E%3ClinearGradient id='f1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23301a26'/%3E%3Cstop offset='1' stop-color='%23141a24'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='640' height='360' fill='url(%23f1)'/%3E%3Crect x='60' y='60' width='230' height='240' rx='8' fill='%23ff3d5a' opacity='.25'/%3E%3Crect x='330' y='90' width='250' height='180' rx='8' fill='%234dd0e1' opacity='.18'/%3E%3Cpath d='M60 320 L300 250 L520 320 Z' fill='%23121722'/%3E%3Ccircle cx='380' cy='170' r='34' fill='%23ffd166' opacity='.75'/%3E%3Cpath d='M368 152 L404 170 L368 188 Z' fill='%23121722'/%3E%3C/svg%3E" alt="焦点视频封面：白天与夜晚两重身份的对比构图">
+            <span class="cfx-vthumb-label">每日大赛 · 第51期</span>
+            <span class="cfx-vthumb-dur">06:42</span>
+            <span class="cfx-vthumb-play"><i>▶</i></span>
+          </div>
+          <div class="cfx-vbody">
+            <h3 class="cfx-vtitle">白天做审计，夜里在旧城区拍招牌：她把两个自己剪进了同一条片子</h3>
+            <p class="cfx-vdesc">一位审计师用三年时间拍下老城招牌的消失史。她说，工作教她核对数字，摄影教她核对记忆。这条片子在第 51 期反差挑战中获得了本周最高票。</p>
+            <div class="cfx-vmeta">
+              <div class="cfx-vauthor">
+                <span class="cfx-avatar" style="background:linear-gradient(135deg,#ffd166,#ff7a45)">林</span>
+                <span>林见野 · 认证创作者</span>
+              </div>
+              <div class="cfx-vops">
+                <button class="cfx-op" data-cfx-like="1268">♡ 1268</button>
+                <button class="cfx-op" data-cfx-save>☆ 收藏</button>
+                <button class="cfx-op" data-cfx-open="share">↗ 分享</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <div class="cfx-focus-side">
+          <article class="cfx-mini-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%230e1a20'/%3E%3Ccircle cx='70' cy='60' r='42' fill='%234dd0e1' opacity='.3'/%3E%3Crect x='140' y='40' width='140' height='100' rx='6' fill='%23ff3d5a' opacity='.22'/%3E%3Cpath d='M0 150 H320 V180 H0 Z' fill='%23131c26'/%3E%3Cpath d='M150 96 L180 78 L210 96 L180 114 Z' fill='%23ffd166' opacity='.8'/%3E%3C/svg%3E" alt="小卡封面：夜班结束后的城市街道光影">
+            <div class="cfx-mini-body">
+              <h4>夜班结束后，他在便利店门口录下了一整年的天亮</h4>
+              <small>周叙 · 09:15 · 城市探索</small>
+            </div>
+          </article>
+          <article class="cfx-mini-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%231a1420'/%3E%3Cpath d='M20 140 Q80 60 160 110 T300 90' stroke='%23ffd166' stroke-width='3' fill='none' opacity='.8'/%3E%3Ccircle cx='160' cy='110' r='10' fill='%23ff3d5a'/%3E%3Crect x='200' y='30' width='90' height='60' rx='5' fill='%234dd0e1' opacity='.2'/%3E%3C/svg%3E" alt="小卡封面：声音波形与手工乐器制作场景">
+            <div class="cfx-mini-body">
+              <h4>会做木工的产品经理，用一把自制的琴录下了第一首歌</h4>
+              <small>木与声 · 05:08 · 创作幕后</small>
+            </div>
+          </article>
+          <article class="cfx-mini-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%230f1a16'/%3E%3Crect x='24' y='100' width='70' height='60' fill='%233fb37a' opacity='.5'/%3E%3Crect x='110' y='70' width='60' height='90' fill='%23ffd166' opacity='.45'/%3E%3Crect x='190' y='40' width='100' height='120' fill='%23ff3d5a' opacity='.2'/%3E%3Ccircle cx='250' cy='50' r='16' fill='%23ffffff' opacity='.5'/%3E%3C/svg%3E" alt="小卡封面：菜市场摊位与城市建筑的对照">
+            <div class="cfx-mini-body">
+              <h4>菜市场里的“翻译官”：她帮摊主记录下每一道老菜的来历</h4>
+              <small>陈小满 · 11:20 · 在地文化</small>
+            </div>
+          </article>
+          <article class="cfx-mini-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%2312151c'/%3E%3Crect x='40' y='30' width='100' height='120' rx='6' fill='%23ff7a45' opacity='.3'/%3E%3Crect x='170' y='50' width='120' height='90' rx='6' fill='%23ff3d5a' opacity='.22'/%3E%3Cpath d='M160 150 L200 96 L240 150 Z' fill='%23ffd166' opacity='.7'/%3E%3C/svg%3E" alt="小卡封面：翻开的笔记本与镜头设备并置">
+            <div class="cfx-mini-body">
+              <h4>从会计转行做剪辑，他用一年时间把账本写成了分镜表</h4>
+              <small>何知算 · 07:36 · 人物访谈</small>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热门内容流 -->
+  <section class="cfx-section" id="cfxStream">
+    <div class="cfx-wrap">
+      <div class="cfx-section-head">
+        <div>
+          <span class="cfx-eyebrow">TRENDING</span>
+          <h2 class="cfx-h2">热门内容 <em>社区正在讨论</em></h2>
+          <p class="cfx-sub">按标签筛选，看看今天大家都在拍什么。</p>
+        </div>
+      </div>
+
+      <div class="cfx-filterbar" id="cfxFilterBar">
+        <button class="cfx-chip is-active" data-cfx-filter="all">全部</button>
+        <button class="cfx-chip" data-cfx-filter="daily">日常记录</button>
+        <button class="cfx-chip" data-cfx-filter="skill">教程干货</button>
+        <button class="cfx-chip" data-cfx-filter="city">城市探索</button>
+        <button class="cfx-chip" data-cfx-filter="story">人物访谈</button>
+        <button class="cfx-chip" data-cfx-filter="craft">创作幕后</button>
+      </div>
+
+      <div class="cfx-stream-grid" id="cfxStreamGrid">
+        <article class="cfx-vcard" data-cfx-cat="daily">
+          <div class="cfx-vthumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%23161d26'/%3E%3Crect x='30' y='110' width='260' height='70' fill='%23202a36'/%3E%3Ccircle cx='250' cy='48' r='24' fill='%23ffd166' opacity='.7'/%3E%3Cpath d='M60 110 Q120 60 180 110' stroke='%23ff3d5a' stroke-width='3' fill='none'/%3E%3C/svg%3E" alt="封面：清晨阳台与咖啡杯的日常记录">
+            <span class="cfx-vthumb-dur">04:12</span>
+            <span class="cfx-vthumb-play"><i>▶</i></span>
+          </div>
+          <div class="cfx-vbody">
+            <h3 class="cfx-vtitle">每天六点起床的人，其实只是想多拥有一段没人打扰的时间</h3>
+            <p class="cfx-vdesc">一位独居设计师的晨间影像记录，没有台词，只有水声、鸟叫和翻书声。</p>
+            <div><span class="cfx-tag">日常记录</span><span class="cfx-tag cfx-tag--yellow">治愈影像</span></div>
+            <div class="cfx-vmeta">
+              <div class="cfx-vauthor"><span class="cfx-avatar" style="background:linear-gradient(135deg,#4dd0e1,#3f7fa8)">沈</span>沈清晨</div>
+              <div class="cfx-vops">
+                <button class="cfx-op" data-cfx-like="842">♡ 842</button>
+                <button class="cfx-op" data-cfx-save>☆</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="cfx-vcard" data-cfx-cat="skill">
+          <div class="cfx-vthumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%230f1d1a'/%3E%3Crect x='26' y='26' width='268' height='30' rx='4' fill='%233fb37a' opacity='.35'/%3E%3Crect x='26' y='70' width='180' height='18' rx='4' fill='%234dd0e1' opacity='.3'/%3E%3Crect x='26' y='100' width='220' height='18' rx='4' fill='%23ffd166' opacity='.4'/%3E%3Crect x='26' y='130' width='140' height='18' rx='4' fill='%23ff3d5a' opacity='.3'/%3E%3C/svg%3E" alt="封面：剪辑时间线上的分层结构与教程示意">
+            <span class="cfx-vthumb-dur">12:05</span>
+            <span class="cfx-vthumb-play"><i>▶</i></span>
+          </div>
+          <div class="cfx-vbody">
+            <h3 class="cfx-vtitle">反差叙事的剪辑思路：为什么把结尾放到开头，情绪反而更完整</h3>
+            <p class="cfx-vdesc">从 6 条获奖作品里拆解“倒叙钩子”的四种做法，新手也能直接套用。</p>
+            <div><span class="cfx-tag">教程干货</span><span class="cfx-tag cfx-tag--red">剪辑思路</span></div>
+            <div class="cfx-vmeta">
+              <div class="cfx-vauthor"><span class="cfx-avatar" style="background:linear-gradient(135deg,#ffd166,#ff7a45)">剪</span>剪刀手老穆</div>
+              <div class="cfx-vops">
+                <button class="cfx-op" data-cfx-like="1533">♡ 1533</button>
+                <button class="cfx-op" data-cfx-save>☆</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="cfx-vcard" data-cfx-cat="city">
+          <div class="cfx-vthumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%23131b27'/%3E%3Crect x='0' y='120' width='320' height='60' fill='%231b2635'/%3E%3Crect x='40' y='50' width='34' height='70' fill='%23ffd166' opacity='.35'/%3E%3Crect x='90' y='30' width='34' height='90' fill='%23ff3d5a' opacity='.3'/%3E%3Crect x='140' y='62' width='34' height='58' fill='%234dd0e1' opacity='.3'/%3E%3Crect x='190' y='44' width='34' height='76' fill='%23ff7a45' opacity='.3'/%3E%3Crect x='240' y='70' width='34' height='50' fill='%23ffffff' opacity='.18'/%3E%3C/svg%3E" alt="封面：城市天际线与街巷并置的探索画面">
+            <span class="cfx-vthumb-dur">08:50</span>
+            <span class="cfx-vthumb-play"><i>▶</i></span>
+          </div>
+          <div class="cfx-vbody">
+            <h3 class="cfx-vtitle">沿着一条公交线坐到终点：那些地图上不会标注的街区生活</h3>
+            <p class="cfx-vdesc">从第 1 站到第 32 站，镜头记录下沿线的早餐摊、修鞋铺和旧书店。</p>
+            <div><span class="cfx-tag">城市探索</span><span class="cfx-tag cfx-tag--yellow">在地文化</span></div>
+            <div class="cfx-vmeta">
+              <div class="cfx-vauthor"><span class="cfx-avatar" style="background:linear-gradient(135deg,#3fb37a,#2a7d55)">路</span>路站牌</div>
+              <div class="cfx-vops">
+                <button class="cfx-op" data-cfx-like="967">♡ 967</button>
+                <button class="cfx-op" data-cfx-save>☆</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="cfx-vcard" data-cfx-cat="story">
+          <div class="cfx-vthumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%231c1420'/%3E%3Ccircle cx='90' cy='80' r='38' fill='%23ff7a45' opacity='.35'/%3E%3Ccircle cx='230' cy='100' r='46' fill='%234dd0e1' opacity='.22'/%3E%3Cpath d='M90 80 L230 100' stroke='%23ffd166' stroke-width='2' stroke-dasharray='6 6'/%3E%3C/svg%3E" alt="封面：两个人像圆形的对话式访谈构图">
+            <span class="cfx-vthumb-dur">15:30</span>
+            <span class="cfx-vthumb-play"><i>▶</i></span>
+          </div>
+          <div class="cfx-vbody">
+            <h3 class="cfx-vtitle">访谈：辞掉稳定工作去做纪录片的第七年，她说最难的是解释自己</h3>
+            <p class="cfx-vdesc">一场长达两小时的对话，剪成十五分钟。关于选择、家人与自我怀疑。</p>
+            <div><span class="cfx-tag">人物访谈</span><span class="cfx-tag cfx-tag--red">深度内容</span></div>
+            <div class="cfx-vmeta">
+              <div class="cfx-vauthor"><span class="cfx-avatar" style="background:linear-gradient(135deg,#c9a3ff,#7a5ce0)">许</span>许多话</div>
+              <div class="cfx-vops">
+                <button class="cfx-op" data-cfx-like="1120">♡ 1120</button>
+                <button class="cfx-op" data-cfx-save>☆</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="cfx-vcard" data-cfx-cat="craft">
+          <div class="cfx-vthumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%231a1710'/%3E%3Cpath d='M20 140 L80 80 L140 140 Z' fill='%23ffd166' opacity='.5'/%3E%3Cpath d='M120 140 L190 66 L260 140 Z' fill='%23ff3d5a' opacity='.35'/%3E%3Ccircle cx='270' cy='50' r='20' fill='%234dd0e1' opacity='.4'/%3E%3C/svg%3E" alt="封面：手工制作现场与灯光设备的创作幕后">
+            <span class="cfx-vthumb-dur">10:18</span>
+            <span class="cfx-vthumb-play"><i>▶</i></span>
+          </div>
+          <div class="cfx-vbody">
+            <h3 class="cfx-vtitle">一条三分钟视频的背后：我们是怎么用一盏台灯拍完整场夜戏的</h3>
+            <p class="cfx-vdesc">预算两百块的布光方案，附完整的拍摄清单与现场花絮。</p>
+            <div><span class="cfx-tag">创作幕后</span><span class="cfx-tag cfx-tag--yellow">实用技巧</span></div>
+            <div class="cfx-vmeta">
+              <div class="cfx-vauthor"><span class="cfx-avatar" style="background:linear-gradient(135deg,#ffd166,#4dd0e1)">灯</span>台灯计划</div>
+              <div class="cfx-vops">
+                <button class="cfx-op" data-cfx-like="738">♡ 738</button>
+                <button class="cfx-op" data-cfx-save>☆</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="cfx-vcard" data-cfx-cat="daily">
+          <div class="cfx-vthumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%23151a16'/%3E%3Ccircle cx='160' cy='90' r='52' fill='none' stroke='%233fb37a' stroke-width='6' opacity='.6'/%3E%3Ccircle cx='160' cy='90' r='24' fill='%23ffd166' opacity='.55'/%3E%3Cpath d='M0 160 H320' stroke='%23ffffff' stroke-width='1' opacity='.15'/%3E%3C/svg%3E" alt="封面：宠物与主人在室内的温柔日常">
+            <span class="cfx-vthumb-dur">03:44</span>
+            <span class="cfx-vthumb-play"><i>▶</i></span>
+          </div>
+          <div class="cfx-vbody">
+            <h3 class="cfx-vtitle">他说自己是“社恐”，但家里那只猫的每一声叫都被他翻译成了句子</h3>
+            <p class="cfx-vdesc">一位独居青年与猫的日常对话记录，意外成为本期最受欢迎的治愈短片。</p>
+            <div><span class="cfx-tag">萌宠日常</span><span class="cfx-tag cfx-tag--red">治愈影像</span></div>
+            <div class="cfx-vmeta">
+              <div class="cfx-vauthor"><span class="cfx-avatar" style="background:linear-gradient(135deg,#ff8f9f,#ff3d5a)">猫</span>猫语十级</div>
+              <div class="cfx-vops">
+                <button class="cfx-op" data-cfx-like="2044">♡ 2044</button>
+                <button class="cfx-op" data-cfx-save>☆</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="cfx-vcard" data-cfx-cat="skill">
+          <div class="cfx-vthumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%23101a24'/%3E%3Crect x='24' y='24' width='120' height='80' rx='5' fill='%234dd0e1' opacity='.25'/%3E%3Crect x='160' y='24' width='136' height='80' rx='5' fill='%23ff3d5a' opacity='.2'/%3E%3Crect x='24' y='116' width='272' height='40' rx='5' fill='%23ffd166' opacity='.2'/%3E%3C/svg%3E" alt="封面：分屏对比与脚本结构的教学画面">
+            <span class="cfx-vthumb-dur">09:02</span>
+            <span class="cfx-vthumb-play"><i>▶</i></span>
+          </div>
+          <div class="cfx-vbody">
+            <h3 class="cfx-vtitle">开头三秒留不住人？用“信息差”写钩子的五个具体写法</h3>
+            <p class="cfx-vdesc">不讲空理论，直接给句式模板和正反例对比，适合刚起步的创作者。</p>
+            <div><span class="cfx-tag">教程干货</span><span class="cfx-tag cfx-tag--yellow">脚本灵感</span></div>
+            <div class="cfx-vmeta">
+              <div class="cfx-vauthor"><span class="cfx-avatar" style="background:linear-gradient(135deg,#4dd0e1,#ffd166)">稿</span>稿纸研究所</div>
+              <div class="cfx-vops">
+                <button class="cfx-op" data-cfx-like="1290">♡ 1290</button>
+                <button class="cfx-op" data-cfx-save>☆</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="cfx-vcard" data-cfx-cat="city">
+          <div class="cfx-vthumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%23182225'/%3E%3Cpath d='M0 140 Q60 100 120 130 T240 120 T320 140 V180 H0 Z' fill='%23213a38'/%3E%3Ccircle cx='250' cy='46' r='22' fill='%23ffd166' opacity='.65'/%3E%3Cpath d='M40 60 h60 v50 h-60 z' fill='%234dd0e1' opacity='.2'/%3E%3C/svg%3E" alt="封面：傍晚水岸与旧城建筑的在地文化画面">
+            <span class="cfx-vthumb-dur">07:21</span>
+            <span class="cfx-vthumb-play"><i>▶</i></span>
+          </div>
+          <div class="cfx-vbody">
+            <h3 class="cfx-vtitle">在老码头长大的孩子，用一条视频把父辈的口述史讲清楚了</h3>
+            <p class="cfx-vdesc">三代人的记忆被剪进七分钟，片尾有一段 1998 年的家庭录像。</p>
+            <div><span class="cfx-tag">在地文化</span><span class="cfx-tag cfx-tag--red">原型故事</span></div>
+            <div class="cfx-vmeta">
+              <div class="cfx-vauthor"><span class="cfx-avatar" style="background:linear-gradient(135deg,#3fb37a,#ffd166)">岸</span>岸上的人</div>
+              <div class="cfx-vops">
+                <button class="cfx-op" data-cfx-like="612">♡ 612</button>
+                <button class="cfx-op" data-cfx-save>☆</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="cfx-vcard" data-cfx-cat="story">
+          <div class="cfx-vthumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%231d1710'/%3E%3Crect x='30' y='30' width='110' height='120' rx='55' fill='%23ff7a45' opacity='.3'/%3E%3Crect x='170' y='50' width='120' height='100' rx='50' fill='%23ffd166' opacity='.25'/%3E%3Cpath d='M60 150 H280' stroke='%23ff3d5a' stroke-width='2' opacity='.6'/%3E%3C/svg%3E" alt="封面：两代人手写笔记与影像对照的访谈画面">
+            <span class="cfx-vthumb-dur">13:06</span>
+            <span class="cfx-vthumb-play"><i>▶</i></span>
+          </div>
+          <div class="cfx-vbody">
+            <h3 class="cfx-vtitle">母女俩一起拍片：一个写书法，一个做特效，最后互相看懂了对方</h3>
+            <p class="cfx-vdesc">两代人的审美差异如何变成一次合作？她们把过程完整拍了下来。</p>
+            <div><span class="cfx-tag">人物访谈</span><span class="cfx-tag cfx-tag--yellow">亲子成长</span></div>
+            <div class="cfx-vmeta">
+              <div class="cfx-vauthor"><span class="cfx-avatar" style="background:linear-gradient(135deg,#ffd166,#ff3d5a)">两</span>两代人工作室</div>
+              <div class="cfx-vops">
+                <button class="cfx-op" data-cfx-like="889">♡ 889</button>
+                <button class="cfx-op" data-cfx-save>☆</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 专题企划 -->
+  <section class="cfx-section" id="cfxTopic">
+    <div class="cfx-wrap">
+      <div class="cfx-section-head">
+        <div>
+          <span class="cfx-eyebrow">SERIES</span>
+          <h2 class="cfx-h2">专题企划 <em>把一个主题拍到更深</em></h2>
+          <p class="cfx-sub">由编辑团队策划、创作者联合制作，每月一个长期企划。</p>
+        </div>
+      </div>
+      <div class="cfx-topic-grid">
+        <article class="cfx-topic">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23161c26'/%3E%3Crect x='30' y='150' width='340' height='100' fill='%231f2836'/%3E%3Cg fill='%23ff3d5a' opacity='.5'%3E%3Crect x='50' y='60' width='40' height='90'/%3E%3Crect x='110' y='30' width='40' height='120'/%3E%3C/g%3E%3Cg fill='%234dd0e1' opacity='.4'%3E%3Crect x='180' y='80' width='40' height='70'/%3E%3Crect x='250' y='50' width='40' height='100'/%3E%3C/g%3E%3Ccircle cx='340' cy='46' r='20' fill='%23ffd166' opacity='.6'/%3E%3C/svg%3E" alt="专题封面：城市另一面——街区与夜景的对照影像">
+          <span class="cfx-topic-state cfx-topic-state--live">更新中 · 第6集</span>
+          <div class="cfx-topic-body">
+            <h3>城市另一面</h3>
+            <p>同一条街道，白天与凌晨是两种生活。12 位创作者各自认领一座城市，用双线叙事记录熟悉地标的陌生时刻。</p>
+          </div>
+        </article>
+        <article class="cfx-topic">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%231c1710'/%3E%3Crect x='40' y='40' width='140' height='170' rx='6' fill='%23ff7a45' opacity='.28'/%3E%3Crect x='210' y='70' width='150' height='140' rx='6' fill='%23ffd166' opacity='.22'/%3E%3Cpath d='M40 210 L200 160 L360 210' stroke='%23ff3d5a' stroke-width='3' fill='none' opacity='.7'/%3E%3C/svg%3E" alt="专题封面：下班之后——工作与热爱的双线人生">
+          <span class="cfx-topic-state">已完结 · 共8集</span>
+          <div class="cfx-topic-body">
+            <h3>下班之后</h3>
+            <p>八位上班族的第二身份：乐队鼓手、陶艺学徒、业余气象观测员。记录那些不被工作定义的部分。</p>
+          </div>
+        </article>
+        <article class="cfx-topic">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%230f1f22'/%3E%3Ccircle cx='110' cy='110' r='60' fill='none' stroke='%234dd0e1' stroke-width='4' opacity='.6'/%3E%3Ccircle cx='280' cy='140' r='44' fill='%23ffd166' opacity='.35'/%3E%3Cpath d='M110 50 V170 M50 110 H170' stroke='%234dd0e1' stroke-width='2' opacity='.5'/%3E%3C/svg%3E" alt="专题封面：一百种解释——关于反差叙事的系列短片">
+          <span class="cfx-topic-state">已完结 · 共5集</span>
+          <div class="cfx-topic-body">
+            <h3>一百种解释</h3>
+            <p>同一段素材，交给五位不同职业的人重新剪辑，看看“真实”能被解释出多少种版本。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 创作者矩阵 -->
+  <section class="cfx-section" id="cfxCreator">
+    <div class="cfx-wrap">
+      <div class="cfx-section-head">
+        <div>
+          <span class="cfx-eyebrow">CREATORS</span>
+          <h2 class="cfx-h2">创作者矩阵 <em>他们在持续上传</em></h2>
+          <p class="cfx-sub">认证创作者均通过真人沟通与作品复核，享受官方流量与版权支持。</p>
+        </div>
+      </div>
+      <div class="cfx-creator-grid" id="cfxCreatorGrid">
+        <article class="cfx-creator">
+          <div class="cfx-creator-avatar" style="background:linear-gradient(135deg,#ffd166,#ff7a45)">林</div>
+          <h3>林见野</h3>
+          <div class="cfx-field">城市探索 · 街头摄影</div>
+          <p>审计师的第二身份。拍了三年老城招牌，擅长用静帧节奏讲消失的故事。</p>
+          <div class="cfx-creator-stats">
+            <div><b>86</b>作品</div>
+            <div><b>4.2w</b>关注</div>
+          </div>
+          <button class="cfx-btn cfx-btn--ghost cfx-creator-more" data-cfx-author="林见野|城市探索 · 街头摄影|审计师出身的街头记录者，专注老城招牌与街区记忆，作品以静帧叙事见长，曾获第 48 期每日大赛编辑推荐。|86|4.2万">查看主页</button>
+        </article>
+        <article class="cfx-creator">
+          <div class="cfx-creator-avatar" style="background:linear-gradient(135deg,#4dd0e1,#3f7fa8)">沈</div>
+          <h3>沈清晨</h3>
+          <div class="cfx-field">日常记录 · 治愈影像</div>
+          <p>六点起床的设计师，记录声音与光线。她说镜头是用来留住时间的抽屉。</p>
+          <div class="cfx-creator-stats">
+            <div><b>124</b>作品</div>
+            <div><b>6.8w</b>关注</div>
+          </div>
+          <button class="cfx-btn cfx-btn--ghost cfx-creator-more" data-cfx-author="沈清晨|日常记录 · 治愈影像|独居设计师，长期记录晨间生活与城市声音，作品风格安静克制，是平台治愈类内容代表创作者之一。|124|6.8万">查看主页</button>
+        </article>
+        <article class="cfx-creator">
+          <div class="cfx-creator-avatar" style="background:linear-gradient(135deg,#3fb37a,#ffd166)">路</div>
+          <h3>路站牌</h3>
+          <div class="cfx-field">城市探索 · 公交漫游</div>
+          <p>只用公共交通出行，坐遍城市每条线路，把沿途的小店和人拍成系列。</p>
+          <div class="cfx-creator-stats">
+            <div><b>52</b>作品</div>
+            <div><b>3.1w</b>关注</div>
+          </div>
+          <button class="cfx-btn cfx-btn--ghost cfx-creator-more" data-cfx-author="路站牌|城市探索 · 公交漫游|以公交线路为单位的城市记录者，已拍摄 37 条线路，作品强调真实街景与普通人生活状态。|52|3.1万">查看主页</button>
+        </article>
+        <article class="cfx-creator">
+          <div class="cfx-creator-avatar" style="background:linear-gradient(135deg,#c9a3ff,#7a5ce0)">许</div>
+          <h3>许多话</h3>
+          <div class="cfx-field">人物访谈 · 深度对谈</div>
+          <p>前媒体人，做长访谈。她相信把问题问慢一点，答案就会诚实一点。</p>
+          <div class="cfx-creator-stats">
+            <div><b>41</b>作品</div>
+            <div><b>5.5w</b>关注</div>
+          </div>
+          <button class="cfx-btn cfx-btn--ghost cfx-creator-more" data-cfx-author="许多话|人物访谈 · 深度对谈|前媒体从业者，专注两小时以上的深度访谈，作品以完整对话结构著称，曾参与多期官方专题策划。|41|5.5万">查看主页</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 用户评价 -->
+  <section class="cfx-section" id="cfxVoice">
+    <div class="cfx-wrap">
+      <div class="cfx-section-head">
+        <div>
+          <span class="cfx-eyebrow">COMMUNITY VOICE</span>
+          <h2 class="cfx-h2">社区口碑 <em>用户怎么说</em></h2>
+          <p class="cfx-sub">来自评论区、投稿反馈与合作方的真实声音。</p>
+        </div>
+      </div>
+      <div class="cfx-quote-grid">
+        <div class="cfx-quote">
+          <p>第一次投稿其实很忐忑，怕自己拍得太业余。结果编辑给了很具体的修改建议，不是敷衍的那种。改完之后确实好很多。</p>
+          <div class="cfx-quote-user"><span class="cfx-avatar" style="background:linear-gradient(135deg,#ffd166,#ff7a45)">阿</span><span>阿豆不圆<br><span class="cfx-stars">★★★★★</span></span></div>
+        </div>
+        <div class="cfx-quote">
+          <p>每天午休都会刷一会儿。最喜欢的是它不刻意煽情，很多人就是在讲自己的事，但你看完会想一会儿。</p>
+          <div class="cfx-quote-user"><span class="cfx-avatar" style="background:linear-gradient(135deg,#4dd0e1,#3f7fa8)">林</span><span>林间慢走<br><span class="cfx-stars">★★★★★</span></span></div>
+        </div>
+        <div class="cfx-quote">
+          <p>作为品牌方合作过一次专题，从选题到最后的版权文件都很规范，沟通成本比想象中低很多。</p>
+          <div class="cfx-quote-user"><span class="cfx-avatar" style="background:linear-gradient(135deg,#3fb37a,#2a7d55)">青</span><span>青野影像器材<br><span class="cfx-stars">★★★★☆</span></span></div>
+        </div>
+        <div class="cfx-quote">
+          <p>剪辑教程是真的能用的那种，不是讲概念。我照着做了一条，虽然数据一般，但自己看得下去了。</p>
+          <div class="cfx-quote-user"><span class="cfx-avatar" style="background:linear-gradient(135deg,#ff8f9f,#ff3d5a)">小</span><span>小满在剪片<br><span class="cfx-stars">★★★★★</span></span></div>
+        </div>
+        <div class="cfx-quote">
+          <p>投稿审核大概两天，比预期快。而且被拒了也会说明原因，这点挺难得的，感觉被认真对待了。</p>
+          <div class="cfx-quote-user"><span class="cfx-avatar" style="background:linear-gradient(135deg,#c9a3ff,#7a5ce0)">半</span><span>半页稿纸<br><span class="cfx-stars">★★★★☆</span></span></div>
+        </div>
+        <div class="cfx-quote">
+          <p>我妈妈也在这个平台看，她喜欢那些讲老手艺的片子。两代人能一起讨论同一个视频，挺奇妙的。</p>
+          <div class="cfx-quote-user"><span class="cfx-avatar" style="background:linear-gradient(135deg,#ffd166,#4dd0e1)">海</span><span>海边旧书店<br><span class="cfx-stars">★★★★★</span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 灵感 + 榜单 -->
+  <section class="cfx-section" id="cfxInspire">
+    <div class="cfx-wrap">
+      <div class="cfx-section-head">
+        <div>
+          <span class="cfx-eyebrow">INSPIRATION</span>
+          <h2 class="cfx-h2">创作灵感与本期榜单 <em>给下一次上传一点方向</em></h2>
+          <p class="cfx-sub">编辑整理的选题提示，以及第 51 期的实时热度排行。</p>
+        </div>
+      </div>
+      <div class="cfx-duo">
+        <div class="cfx-idea">
+          <h3>本周选题提示</h3>
+          <p>如果你还没有想好拍什么，可以从这三个方向开始。</p>
+          <div class="cfx-idea-item"><b>选题一 · 我的“不像我”时刻</b>拍一个熟悉你的人看到会惊讶的爱好或习惯，重点不是展示，而是解释它为什么重要。</div>
+          <div class="cfx-idea-item"><b>选题二 · 一件旧物的新用途</b>从家里找出被闲置三年以上的东西，记录它重新被使用的过程，允许失败。</div>
+          <div class="cfx-idea-item"><b>选题三 · 一句被误解的话</b>选一句你常被误解的表达，用影像重新解释它。可以只有三十秒。</div>
+        </div>
+        <div class="cfx-rank">
+          <h3>第 51 期热度榜</h3>
+          <div class="cfx-rank-item"><span class="cfx-rank-no">1</span><span class="cfx-rank-name">白天做审计，夜里拍招牌</span><span class="cfx-rank-val">1268 票</span></div>
+          <div class="cfx-rank-item"><span class="cfx-rank-no">2</span><span class="cfx-rank-name">反差叙事的剪辑思路</span><span class="cfx-rank-val">1533 赞</span></div>
+          <div class="cfx-rank-item"><span class="cfx-rank-no">3</span><span class="cfx-rank-name">社恐青年与他的猫</span><span class="cfx-rank-val">2044 赞</span></div>
+          <div class="cfx-rank-item"><span class="cfx-rank-no">4</span><span class="cfx-rank-name">一条公交线坐到终点</span><span class="cfx-rank-val">967 赞</span></div>
+          <div class="cfx-rank-item"><span class="cfx-rank-no">5</span><span class="cfx-rank-name">开头三秒的五个钩子写法</span><span class="cfx-rank-val">1290 赞</span></div>
+          <div class="cfx-rank-item"><span class="cfx-rank-no">6</span><span class="cfx-rank-name">辞掉工作的第七年</span><span class="cfx-rank-val">1120 赞</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 企业动态 -->
+  <section class="cfx-section" id="cfxLog">
+    <div class="cfx-wrap">
+      <div class="cfx-section-head">
+        <div>
+          <span class="cfx-eyebrow">UPDATES</span>
+          <h2 class="cfx-h2">企业动态 <em>官方发布</em></h2>
+          <p class="cfx-sub">平台规则、功能更新与线下活动的公开记录。</p>
+        </div>
+      </div>
+      <div class="cfx-log">
+        <div class="cfx-log-item">
+          <div class="cfx-log-date">2026.11.19</div>
+          <div><h4>第 51 期「反差挑战」征集通道开放，本期主题为“我的另一面”</h4><p>投稿截止 11 月 26 日 24 时，单条时长建议 1—8 分钟，需保证素材授权完整。</p></div>
+          <span class="cfx-log-kind">官方发布</span>
+        </div>
+        <div class="cfx-log-item">
+          <div class="cfx-log-date">2026.11.16</div>
+          <div><h4>创作者后台新增分镜草稿与素材授权登记功能</h4><p>支持在线上传分镜结构、登记参演人员授权，审核周期预计缩短约 30%。</p></div>
+          <span class="cfx-log-kind">功能更新</span>
+        </div>
+        <div class="cfx-log-item">
+          <div class="cfx-log-date">2026.11.12</div>
+          <div><h4>《反差叙事内容准则（第二版）》正式生效</h4><p>补充了涉及私人空间拍摄、未成年人出镜与二次剪辑的具体规范，全文可在帮助中心查阅。</p></div>
+          <span class="cfx-log-kind">规则发布</span>
+        </div>
+        <div class="cfx-log-item">
+          <div class="cfx-log-date">2026.11.05</div>
+          <div><h4>「城市另一面」线下放映会第 3 站完成，36 位创作者到场</h4><p>放映结束后进行了两小时开放讨论，现场记录已整理为图文内容上线专题页。</p></div>
+          <span class="cfx-log-kind">线下活动</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="cfx-section" id="cfxFaq">
+    <div class="cfx-wrap">
+      <div class="cfx-section-head">
+        <div>
+          <span class="cfx-eyebrow">HELP</span>
+          <h2 class="cfx-h2">常见问题 <em>投稿前可以先看这里</em></h2>
+        </div>
+      </div>
+      <div class="cfx-faq">
+        <details>
+          <summary>投稿有什么基本要求？</summary>
+          <p>作品需为原创或已取得完整授权，时长建议 1—8 分钟，画质不低于 1080p。涉及他人出镜需提供口头或书面同意说明，涉及私人空间拍摄需确认当事人知情。我们不接受未经允许的偷拍素材与明显的猎奇化剪辑。</p>
+        </details>
+        <details>
+          <summary>审核一般需要多久？</summary>
+          <p>常规审核周期为 1—3 个工作日。若素材授权信息不完整，编辑会通过站内消息联系补充，补充完成后重新进入审核队列。专题合作内容因涉及多方确认，周期可能延长至 5 个工作日。</p>
+        </details>
+        <details>
+          <summary>如何申请创作者认证？</summary>
+          <p>在投稿页面提交认证申请，需满足近半年内有 3 条以上作品通过审核、无违规记录、并完善实名信息。认证通过后可获得官方流量扶持、版权协助与专题优先参与资格。本期开放 120 个名额。</p>
+        </details>
+        <details>
+          <summary>平台如何保护当事人隐私？</summary>
+          <p>所有涉及真实的个人故事，上线前均会与当事人确认呈现方式。用户也可以申请模糊处理面部、隐去具体地址与工作单位。对于不愿公开的内容，我们提供仅站内可见的选项。</p>
+        </details>
+        <details>
+          <summary>品牌可以与平台合作吗？</summary>
+          <p>可以。我们提供专题共创、创作者联动与线下放映三种合作形式。所有商业合作内容均会明确标注“品牌合作”，并遵守统一的内容准则。合作咨询请通过页面下方联系入口提交。</p>
+        </details>
+        <details>
+          <summary>我被拒稿了，可以知道原因吗？</summary>
+          <p>可以。每一条未通过的作品都会附带具体原因说明，常见包括素材授权不清晰、画质不达标、叙事结构不完整或与当期主题不符。修改后可重新提交，不限制次数。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系 -->
+  <section class="cfx-section" id="cfxContact">
+    <div class="cfx-wrap">
+      <div class="cfx-contact">
+        <div>
+          <h2>把你的故事交给 <em>51反差爆料每日大赛</em></h2>
+          <p>无论是第一次拿起相机，还是已经拍了很久，我们都愿意认真看完你的作品。投稿、合作、反馈，都可以从这里开始。</p>
+          <div class="cfx-contact-actions">
+            <button class="cfx-btn cfx-btn--primary" data-cfx-open="submit">提交投稿</button>
+            <button class="cfx-btn cfx-btn--ghost" data-cfx-open="share">分享本站</button>
+            <button class="cfx-btn cfx-btn--ghost" data-cfx-open="feedback">意见反馈</button>
+          </div>
+        </div>
+        <div class="cfx-contact-info">
+          <div><span>投稿咨询</span>creator@cfx-daily.example</div>
+          <div><span>品牌合作</span>partner@cfx-daily.example</div>
+          <div><span>内容反馈</span>feedback@cfx-daily.example</div>
+          <div><span>工作时间</span>周一至周五 10:00 — 18:30</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="cfx-footer">
+  <div class="cfx-wrap">
+    <div class="cfx-footer-grid">
+      <div class="cfx-footer-brand">
+        <a class="cfx-logo" href="#cfxHome">
+          <span class="cfx-logo-mark">51</span>
+          <span>51反差爆料<small>每日大赛 · 官方网站</small></span>
+        </a>
+        <p>51反差爆料每日大赛官方网站，专注反差叙事影像的原创内容社区。我们持续运营、深耕垂直领域，与创作者一起把真实的生活拍成值得被记住的影像。</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#cfxFocus">焦点视频</a></li>
+          <li><a href="#cfxStream">热门内容</a></li>
+          <li><a href="#cfxTopic">专题企划</a></li>
+          <li><a href="#cfxCreator">创作者矩阵</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于平台</h4>
+        <ul>
+          <li><a href="#cfxAbout">品牌介绍</a></li>
+          <li><a href="#cfxLog">企业动态</a></li>
+          <li><a href="#cfxVoice">社区口碑</a></li>
+          <li><a href="#cfxFaq">帮助中心</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>参与方式</h4>
+        <ul>
+          <li><a href="#cfxContact">我要投稿</a></li>
+          <li><a href="#cfxInspire">创作灵感</a></li>
+          <li><a href="#cfxContact">品牌合作</a></li>
+          <li><a href="#cfxContact">意见反馈</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="cfx-footer-bottom">
+      <span>© 2026 51反差爆料每日大赛 · 官方网站 · 版权所有</span>
+      <span>持续运营中 · 内容以原创、正版、高清为标准 · 用户至上</span>
+    </div>
+  </div>
+</footer>
+
+<button class="cfx-totop" id="cfxToTop" aria-label="回到顶部">↑</button>
+<div class="cfx-toast" id="cfxToast" role="status" aria-live="polite"></div>
+
+<!-- 投稿弹窗 -->
+<div class="cfx-modal" id="cfxModal-submit" role="dialog" aria-modal="true" aria-label="投稿入口">
+  <div class="cfx-modal-box">
+    <h3>提交投稿</h3>
+    <p>填写基本信息，编辑会在 1—3 个工作日内与你联系。</p>
+    <label for="cfxSubName">作品标题</label>
+    <input id="cfxSubName" type="text" placeholder="例如：我在凌晨四点拍到了城市醒来的样子">
+    <label for="cfxSubCat">内容方向</label>
+    <select id="cfxSubCat">
+      <option>日常记录</option>
+      <option>城市探索</option>
+      <option>人物访谈</option>
+      <option>教程干货</option>
+      <option>创作幕后</option>
+    </select>
+    <label for="cfxSubDesc">一句话简介</label>
+    <textarea id="cfxSubDesc" placeholder="用一两句话说明这条片子讲了什么，以及你为什么想拍它。"></textarea>
+    <div class="cfx-modal-actions">
+      <button class="cfx-btn cfx-btn--ghost" data-cfx-close>取消</button>
+      <button class="cfx-btn cfx-btn--primary" id="cfxSubmitSend">提交</button>
+    </div>
+  </div>
+</div>
+
+<!-- 分享弹窗 -->
+<div class="cfx-modal" id="cfxModal-share" role="dialog" aria-modal="true" aria-label="分享本站">
+  <div class="cfx-modal-box">
+    <h3>分享 51反差爆料每日大赛</h3>
+    <p>把这个页面发给同样喜欢真实故事的朋友。</p>
+    <div class="cfx-share-list">
+      <button data-cfx-share="微信">微信</button>
+      <button data-cfx-share="微博">微博</button>
+      <button data-cfx-share="QQ">QQ</button>
+      <button data-cfx-share="复制链接">复制链接</button>
+    </div>
+    <div class="cfx-modal-actions">
+      <button class="cfx-btn cfx-btn--ghost" data-cfx-close>关闭</button>
+    </div>
+  </div>
+</div>
+
+<!-- 反馈弹窗 -->
+<div class="cfx-modal" id="cfxModal-feedback" role="dialog" aria-modal="true" aria-label="意见反馈">
+  <div class="cfx-modal-box">
+    <h3>意见反馈</h3>
+    <p>你的每一条反馈都会被人工阅读。</p>
+    <label for="cfxFbType">反馈类型</label>
+    <select id="cfxFbType">
+      <option>内容建议</option>
+      <option>功能问题</option>
+      <option>版权相关</option>
+      <option>合作咨询</option>
+    </select>
+    <label for="cfxFbText">具体描述</label>
+    <textarea id="cfxFbText" placeholder="请描述你遇到的问题或建议，尽量具体一些。"></textarea>
+    <div class="cfx-modal-actions">
+      <button class="cfx-btn cfx-btn--ghost" data-cfx-close>取消</button>
+      <button class="cfx-btn cfx-btn--primary" id="cfxFbSend">发送</button>
+    </div>
+  </div>
+</div>
+
+<!-- 作者弹窗 -->
+<div class="cfx-modal" id="cfxModal-author" role="dialog" aria-modal="true" aria-label="创作者主页">
+  <div class="cfx-modal-box">
+    <h3 id="cfxAuthorName">创作者</h3>
+    <p id="cfxAuthorField">擅长领域</p>
+    <p id="cfxAuthorDesc" style="color:#c3cbdb;font-size:13.4px;line-height:1.9"></p>
+    <div style="display:flex;gap:22px;margin-top:14px;font-size:12.6px;color:#96a0b5">
+      <div>作品 <b id="cfxAuthorWorks" style="color:#fff">—</b></div>
+      <div>关注 <b id="cfxAuthorFans" style="color:#fff">—</b></div>
+    </div>
+    <div class="cfx-modal-actions">
+      <button class="cfx-btn cfx-btn--ghost" data-cfx-close>关闭</button>
+      <button class="cfx-btn cfx-btn--primary" data-cfx-follow>关注 TA</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var toastEl = document.getElementById('cfxToast');
+  var toastTimer = null;
+  function showToast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('is-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){
+      toastEl.classList.remove('is-show');
+    }, 2200);
+  }
+
+  /* ---------- 移动端导航 ---------- */
+  var burger = document.getElementById('cfxBurger');
+  var nav = document.getElementById('cfxNav');
+  if(burger && nav){
+    burger.addEventListener('click', function(){
+      var open = nav.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.textContent = open ? '✕' : '☰';
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A' && window.innerWidth <= 720){
+        nav.classList.remove('is-open');
+        burger.setAttribute('aria-expanded','false');
+        burger.textContent = '☰';
+      }
+    });
+  }
+
+  /* ---------- 导航高亮 ---------- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.cfx-nav a'));
+  var sections = navLinks.map(function(a){
+    return document.querySelector(a.getAttribute('href'));
+  }).filter(Boolean);
+  window.addEventListener('scroll', function(){
+    var pos = window.scrollY + 160;
+    var current = null;
+    sections.forEach(function(sec){
+      if(sec.offsetTop <= pos) current = sec;
+    });
+    if(current){
+      navLinks.forEach(function(a){
+        a.classList.toggle('is-active', a.getAttribute('href') === '#' + current.id);
+      });
+    }
+  }, {passive:true});
+
+  /* ---------- 搜索反馈 ---------- */
+  var searchInput = document.getElementById('cfxSearch');
+  var searchTip = document.getElementById('cfxSearchTip');
+  var searchData = [
+    '城市另一面 · 专题企划',
+    '反差叙事的剪辑思路 · 教程干货',
+    '白天做审计，夜里拍招牌 · 焦点视频',
+    '林见野 · 认证创作者',
+    '下班之后 · 已完结专题',
+    '第 51 期反差挑战 · 征集公告'
+  ];
+  if(searchInput && searchTip){
+    searchInput.addEventListener('input', function(){
+      var q = searchInput.value.trim();
+      if(!q){
+        searchTip.classList.remove('is-open');
+        searchTip.innerHTML = '';
+        return;
+      }
+      var hits = searchData.filter(function(item){
+        return item.indexOf(q) !== -1;
+      });
+      if(hits.length === 0){
+        hits = searchData.filter(function(item){
+          return item.toLowerCase().indexOf(q.toLowerCase()) !== -1;
+        });
+      }
+      searchTip.innerHTML = hits.length
+        ? '为你找到 <b>' + hits.length + '</b> 条相关内容：<br>' + hits.slice(0,4).map(function(h){return '· ' + h;}).join('<br>')
+        : '暂无匹配内容，试试「反差」「城市」或创作者昵称。';
+      searchTip.classList.add('is-open');
+    });
+    document.addEventListener('click', function(e){
+      if(!e.target.closest('.cfx-search')){
+        searchTip.classList.remove('is-open');
+      }
+    });
+    searchInput.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){
+        showToast(searchInput.value.trim() ? '已按关键词筛选相关内容' : '请输入关键词');
+      }
+    });
+  }
+
+  /* ---------- 标签筛选 ---------- */
+  var filterBar = document.getElementById('cfxFilterBar');
+  var streamGrid = document.getElementById('cfxStreamGrid');
+  if(filterBar && streamGrid){
+    filterBar.addEventListener('click', function(e){
+      var btn = e.target.closest('.cfx-chip');
+      if(!btn) return;
+      Array.prototype.forEach.call(filterBar.querySelectorAll('.cfx-chip'), function(c){
+        c.classList.remove('is-active');
+      });
+      btn.classList.add('is-active');
+      var cat = btn.getAttribute('data-cfx-filter');
+      Array.prototype.forEach.call(streamGrid.querySelectorAll('.cfx-vcard'), function(card){
+        var match = (cat === 'all') || (card.getAttribute('data-cfx-cat') === cat);
+        card.classList.toggle('is-hidden', !match);
+      });
+    });
+  }
+
+  /* ---------- 点赞 & 收藏 ---------- */
+  document.addEventListener('click', function(e){
+    var likeBtn = e.target.closest('[data-cfx-like]');
+    if(likeBtn){
+      var base = parseInt(likeBtn.getAttribute('data-cfx-like'), 10);
+      var liked = likeBtn.classList.toggle('is-liked');
+      likeBtn.textContent = (liked ? '♥ ' : '♡ ') + (liked ? base + 1 : base);
+      showToast(liked ? '已点赞，感谢你的支持' : '已取消点赞');
+      return;
+    }
+    var saveBtn = e.target.closest('[data-cfx-save]');
+    if(saveBtn){
+      var saved = saveBtn.classList.toggle('is-saved');
+      saveBtn.textContent = saved ? '★ 已收藏' : '☆ 收藏';
+      showToast(saved ? '已加入收藏，稍后可在个人页查看' : '已取消收藏');
+    }
+  });
+
+  /* ---------- 弹窗 ---------- */
+  var modals = document.querySelectorAll('.cfx-modal');
+  function openModal(name){
+    var m = document.getElementById('cfxModal-' + name);
+    if(m){
+      m.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  function closeAllModals(){
+    modals.forEach(function(m){ m.classList.remove('is-open'); });
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('click', function(e){
+    var opener = e.target.closest('[data-cfx-open]');
+    if(opener){
+      openModal(opener.getAttribute('data-cfx-open'));
+      return;
+    }
+    if(e.target.closest('[data-cfx-close]')){
+      closeAllModals();
+      return;
+    }
+    if(e.target.classList.contains('cfx-modal')){
+      closeAllModals();
+    }
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeAllModals();
+  });
+
+  /* ---------- 作者信息 ---------- */
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('[data-cfx-author]');
+    if(!btn) return;
+    var parts = btn.getAttribute('data-cfx-author').split('|');
+    document.getElementById('cfxAuthorName').textContent = parts[0] || '创作者';
+    document.getElementById('cfxAuthorField').textContent = parts[1] || '';
+    document.getElementById('cfxAuthorDesc').textContent = parts[2] || '';
+    document.getElementById('cfxAuthorWorks').textContent = parts[3] || '—';
+    document.getElementById('cfxAuthorFans').textContent = parts[4] || '—';
+    openModal('author');
+  });
+
+  var followBtn = document.querySelector('[data-cfx-follow]');
+  if(followBtn){
+    followBtn.addEventListener('click', function(){
+      var on = followBtn.getAttribute('data-on') === '1';
+      followBtn.setAttribute('data-on', on ? '0' : '1');
+      followBtn.textContent = on ? '关注 TA' : '已关注';
+      showToast(on ? '已取消关注' : '已关注，后续更新会通知你');
+    });
+  }
+
+  /* ---------- 分享 ---------- */
+  document.addEventListener('click', function(e){
+    var sb = e.target.closest('[data-cfx-share]');
+    if(!sb) return;
+    var type = sb.getAttribute('data-cfx-share');
+    if(type === '复制链接'){
+      var url = window.location.href;
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(url).then(function(){
+          showToast('页面链接已复制');
+        }).catch(function(){
+          showToast('复制失败，请手动复制地址');
+        });
+      }else{
+        showToast('当前浏览器不支持自动复制');
+      }
+    }else{
+      showToast('已生成分享提示，可前往' + type + '粘贴');
+    }
+  });
+
+  /* ---------- 投稿提交 ---------- */
+  var submitSend = document.getElementById('cfxSubmitSend');
+  if(submitSend){
+    submitSend.addEventListener('click', function(){
+      var title = document.getElementById('cfxSubName').value.trim();
+      if(!title){
+        showToast('请先填写作品标题');
+        return;
+      }
+      closeAllModals();
+      document.getElementById('cfxSubName').value = '';
+      document.getElementById('cfxSubDesc').value = '';
+      showToast('投稿已提交，编辑将在 1—3 个工作日内联系你');
+    });
+  }
+  var fbSend = document.getElementById('cfxFbSend');
+  if(fbSend){
+    fbSend.addEventListener('click', function(){
+      var txt = document.getElementById('cfxFbText').value.trim();
+      if(!txt){
+        showToast('请先描述你的反馈内容');
+        return;
+      }
+      closeAllModals();
+      document.getElementById('cfxFbText').value = '';
+      showToast('反馈已发送，感谢你的建议');
+    });
+  }
+
+  /* ---------- 回到顶部 ---------- */
+  var toTop = document.getElementById('cfxToTop');
+  window.addEventListener('scroll', function(){
+    toTop.classList.toggle('is-show', window.scrollY > 520);
+  }, {passive:true});
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* ---------- 数字滚动 ---------- */
+  var counters = document.querySelectorAll('[data-cfx-count]');
+  var counted = false;
+  function runCount(){
+    if(counted) return;
+    counted = true;
+    counters.forEach(function(el){
+      var target = parseInt(el.getAttribute('data-cfx-count'), 10);
+      var suffix = el.querySelector('i') ? el.querySelector('i').outerHTML : '';
+      var start = null;
+      var dur = 1200;
+      function step(ts){
+        if(!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var val = Math.floor(target * (1 - Math.pow(1 - p, 3)));
+        el.innerHTML = val + suffix;
+        if(p < 1) requestAnimationFrame(step);
+        else el.innerHTML = target + suffix;
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  if('IntersectionObserver' in window && counters.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting) runCount();
+      });
+    }, {threshold:.4});
+    counters.forEach(function(c){ io.observe(c); });
+  }else{
+    runCount();
+  }
+
+})();
+</script>
+</body>
+              </html>
